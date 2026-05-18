@@ -195,7 +195,7 @@ export default function Home() {
                 loop
                 muted
                 playsInline
-                className="w-full h-auto object-contain border border-white/5 rounded-lg"
+                className="w-full h-auto max-h-[90vh] object-contain border border-white/5 rounded-lg"
               >
                 Tu navegador no soporta el elemento de video.
               </video>
