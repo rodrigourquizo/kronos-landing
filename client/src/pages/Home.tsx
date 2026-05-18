@@ -190,7 +190,7 @@ export default function Home() {
             <div className="w-full relative group">
               <div className="absolute inset-0 border border-white/10 bg-[#0a0a0a] overflow-hidden -z-10"></div>
               <video
-                src={`${basePath}images/video_demo.mp4`}
+                src="https://media.githubusercontent.com/media/rodrigourquizo/kronos-landing/main/client/public/images/video_demo.mp4"
                 autoPlay
                 loop
                 muted
