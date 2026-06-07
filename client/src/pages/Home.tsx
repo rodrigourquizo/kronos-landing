@@ -1,11 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, ArrowRight, Zap, TrendingUp, Cpu, BarChart3 } from "lucide-react";
+import { Mail, Linkedin, ArrowRight, Zap, TrendingUp, Cpu, BarChart3, Database, Activity, BrainCircuit } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { AnimatedLines } from "@/components/AnimatedLines";
 
 /**
  * KRONOS Landing Page
@@ -32,13 +31,12 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-[2px] w-full bg-black/90 backdrop-blur-md border-b border-white/5 z-40 transition-all">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="https://kronos-ml.vercel.app/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img 
-              src={`${basePath}images/logo.png`} 
-              alt="KRONOS Logo" 
-              className="h-9 w-auto"
+          <a href="https://kronos-ml.vercel.app/" className="flex items-center hover:opacity-80 transition-opacity">
+            <img
+              src={`${basePath}images/kronos-logo.png`}
+              alt="KRONOS"
+              className="h-10 w-auto max-w-[160px] object-contain"
             />
-            <span className="text-white font-bold tracking-[0.2em] text-sm uppercase">Kronos</span>
           </a>
           <div className="hidden md:flex items-center gap-8">
             <a href="#demo" className="text-xs font-semibold uppercase tracking-widest text-gray-400 hover:text-white transition-colors">Demo</a>
@@ -55,7 +53,17 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section className="min-h-screen flex items-center pt-24 pb-12 relative bg-black overflow-hidden">
-        <AnimatedLines />
+        {/* energia_simbolos background */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={`${basePath}images/energia_simbolos.png`}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60" />
+        </div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -66,10 +74,6 @@ export default function Home() {
             {/* Left: Problem Statement */}
             <div className="space-y-8">
               <div className="space-y-5">
-                <div className="flex items-center gap-3">
-                  <div className="h-px w-8 bg-cyan-500"></div>
-                  <span className="text-xs uppercase tracking-[0.3em] text-cyan-400 font-semibold">KRONOS</span>
-                </div>
                 <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight text-white uppercase">
                   <span className="block">Fallas y anomalías</span>
                   <span className="block">en tus operaciones</span>
@@ -80,20 +84,52 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Problem bullets */}
-              <div className="space-y-3 font-mono text-sm text-gray-300">
-                <div className="flex items-start gap-4">
-                  <span className="text-cyan-500">{"//"}</span>
-                  <span>Procesamiento de datos provenientes de SCADA</span>
-                </div>
-                <div className="flex items-start gap-4">
-                  <span className="text-purple-500">{"//"}</span>
-                  <span>Análisis predictivo para detectar anomalías y anticipar fallas</span>
-                </div>
-                <div className="flex items-start gap-4">
-                  <span className="text-cyan-500">{"//"}</span>
-                  <span>Análisis prescriptivo con IA para toma de decisiones estratégicas</span>
-                </div>
+              {/* Capabilities */}
+              <div className="space-y-2">
+                {[
+                  {
+                    icon: <Database className="w-5 h-5" />,
+                    num: "01",
+                    title: "Integración SCADA",
+                    desc: "Procesamiento y limpieza de datos industriales en tiempo real",
+                    accent: "cyan",
+                  },
+                  {
+                    icon: <Activity className="w-5 h-5" />,
+                    num: "02",
+                    title: "Análisis Predictivo",
+                    desc: "Detección temprana de anomalías y anticipación de fallas",
+                    accent: "purple",
+                  },
+                  {
+                    icon: <BrainCircuit className="w-5 h-5" />,
+                    num: "03",
+                    title: "IA Prescriptiva",
+                    desc: "Recomendaciones estratégicas basadas en modelos de IA avanzada",
+                    accent: "cyan",
+                  },
+                ].map((item) => (
+                  <motion.div
+                    key={item.num}
+                    className={`group flex items-center gap-5 p-4 border-l-2 ${
+                      item.accent === "cyan" ? "border-cyan-500/30 hover:border-cyan-500" : "border-purple-500/30 hover:border-purple-500"
+                    } bg-white/[0.01] hover:bg-white/[0.04] transition-all duration-300 cursor-default`}
+                    whileHover={{ x: 6 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  >
+                    <span className={`shrink-0 ${item.accent === "cyan" ? "text-cyan-500" : "text-purple-500"}`}>
+                      {item.icon}
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-baseline gap-3">
+                        <span className="font-mono text-[10px] text-gray-600">{item.num}</span>
+                        <span className="text-white font-semibold text-lg tracking-wide">{item.title}</span>
+                      </div>
+                      <p className="text-gray-400 text-sm font-light mt-0.5">{item.desc}</p>
+                    </div>
+                    <ArrowRight className={`w-4 h-4 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity ${item.accent === "cyan" ? "text-cyan-500" : "text-purple-500"}`} />
+                  </motion.div>
+                ))}
               </div>
 
               {/* CTA */}
@@ -111,7 +147,7 @@ export default function Home() {
             {/* Right: Hero Logo */}
             <div className="relative flex items-center justify-center w-full py-8 lg:py-0">
               <img
-                src={`${basePath}images/kronos-logo.png`}
+                src={`${basePath}images/KRONOS_fondo_trans.png`}
                 alt="KRONOS"
                 className="relative z-10 w-full max-w-lg lg:max-w-xl xl:max-w-2xl object-contain"
               />
@@ -122,7 +158,7 @@ export default function Home() {
 
       {/* SOLUTION SECTION */}
       <section className="py-24 border-t border-white/5 relative bg-[#050505]">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -245,7 +281,7 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS SECTION */}
-      <section className="py-24 border-t border-white/5 bg-[#050505] relative overflow-hidden">
+      <section className="py-24 border-t border-white/5 bg-black relative overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-20"
              style={{ 
                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)',
@@ -273,11 +309,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative mb-12 border border-white/10 bg-black">
+          <div className="relative mb-12">
             <img
               src={`${basePath}images/kronos-how-it-works.png`}
               alt="How KRONOS Works"
-              className="w-full h-auto object-cover rounded-lg"
+              className="w-full h-auto object-cover"
             />
           </div>
 
@@ -337,18 +373,25 @@ export default function Home() {
           className="container mx-auto px-6"
         >
           <div className="text-center mb-20">
-             <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="h-px w-8 bg-gray-500"></div>
-                <span className="text-xs uppercase tracking-[0.3em] text-gray-400 font-semibold">Leadership</span>
-                <div className="h-px w-8 bg-gray-500"></div>
-              </div>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-6 uppercase">NUESTRO EQUIPO</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-3xl mx-auto">
             {[
-              { name: "Rodrigo Urquizo", role: "CEO", bg: "border-purple-500/50 hover:border-purple-400" },
-              { name: "Stefano Nuñez", role: "CTO", bg: "border-cyan-500/50 hover:border-cyan-400" }
+              {
+                name: "Rodrigo Urquizo",
+                role: "CEO",
+                bg: "border-purple-500/50 hover:border-purple-400",
+                photo: "Rodrigo.png",
+                linkedin: "https://www.linkedin.com/in/rodrigo-urquizo-ab7a3220b/",
+              },
+              {
+                name: "Stefano Nuñez",
+                role: "CTO",
+                bg: "border-cyan-500/50 hover:border-cyan-400",
+                photo: "Stefano.png",
+                linkedin: "https://pe.linkedin.com/in/stefano-andre-nu%C3%B1ez-cueva-7b136b22a",
+              },
             ].map((member, idx) => (
               <div
                 key={idx}
@@ -356,18 +399,26 @@ export default function Home() {
                 onMouseEnter={() => setHoveredTeamMember(idx)}
                 onMouseLeave={() => setHoveredTeamMember(null)}
               >
-                {/* 
-                  AQUÍ CAMBIAS EL TAMAÑO DE LOS CUADRADOS:
-                  Por defecto he puesto "w-48 h-48" (aprox 192px).
-                  - Más pequeño: "w-40 h-40" o "w-32 h-32".
-                  - Más grande: "w-56 h-56" o "w-64 h-64".
-                */}
-                <div className={`w-48 h-48 border ${member.bg} bg-black/50 mb-6 flex items-center justify-center text-white text-5xl font-light tracking-wider transition-all duration-500 group-hover:bg-white/[0.03]`}>
-                  {member.name.charAt(0)}
+                <div className={`w-48 h-48 border ${member.bg} bg-black/50 mb-6 overflow-hidden transition-all duration-500`}>
+                  <img
+                    src={`${basePath}images/${member.photo}`}
+                    alt={member.name}
+                    className="w-full h-full object-cover transition-all duration-500"
+                  />
                 </div>
                 <h3 className="font-bold text-lg uppercase tracking-widest text-white">{member.name}</h3>
                 <p className="text-xs text-gray-400 tracking-[0.2em] font-semibold mt-2">{member.role}</p>
-                <div className={`h-[1px] w-0 bg-white mt-4 transition-all duration-500 ${hoveredTeamMember === idx ? 'w-full' : ''}`}></div>
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 flex items-center gap-2 text-gray-500 hover:text-[#0a66c2] transition-colors duration-300"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Linkedin className="w-4 h-4" />
+                  <span className="text-xs tracking-widest uppercase font-semibold">LinkedIn</span>
+                </a>
+                <div className={`h-[1px] w-0 bg-white mt-3 transition-all duration-500 ${hoveredTeamMember === idx ? 'w-full' : ''}`}></div>
               </div>
             ))}
           </div>
