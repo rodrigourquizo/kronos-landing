@@ -3,5 +3,8 @@
     "env": {
       "GIT_LFS_ENABLED": "1"
     }
-  }
+  },
+  "rewrites": [
+    { "source": "/((?!assets/|images/).*)", "destination": "/index.html" }
+  ]
 }
