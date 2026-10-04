@@ -282,7 +282,7 @@ export default function MantenimientoPredictivo() {
                 </li>
                 <li className="flex items-start gap-3">
                   <Layers className="w-4 h-4 mt-0.5 text-purple-400 shrink-0" />
-                  <p className="text-sm text-gray-400 font-light">Combinación según los requerimientos de tu cliente</p>
+                  <p className="text-sm text-gray-400 font-light">Combinación según los requerimientos de nuestros clientes</p>
                 </li>
               </ul>
             </div>
