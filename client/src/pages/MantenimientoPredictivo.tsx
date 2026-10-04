@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, BarChart3, Cpu, TrendingUp, Zap } from "lucide-react";
+import { ArrowLeft, ArrowRight, Cloud, Cpu, Factory, Fuel, Layers, Mountain, Network, Server, TrendingUp, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
@@ -225,22 +225,116 @@ export default function MantenimientoPredictivo() {
           transition={{ duration: 0.6 }}
           className="container mx-auto px-6"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
-            {[
-              { metric: "Predicción", label: "Detección temprana de fallas", icon: <BarChart3 className="w-5 h-5" /> },
-              { metric: "Optimización", label: "Mejora continua de operaciones", icon: <TrendingUp className="w-5 h-5" /> },
-              { metric: "Confiabilidad", label: "Decisiones basadas en datos", icon: <Zap className="w-5 h-5" /> }
-            ].map((item, idx) => (
-              <div key={idx} className="p-12 border border-white/5 hover:bg-white/[0.03] transition-colors text-center group">
-                <div className="w-12 h-12 bg-transparent border border-white/10 rounded-sm flex items-center justify-center mx-auto mb-8 text-gray-400 group-hover:text-cyan-400 group-hover:border-cyan-500/50 transition-colors">
-                  {item.icon}
-                </div>
-                <h3 className="text-2xl font-bold tracking-widest mb-4 bg-gradient-to-r from-gray-100 to-gray-400 bg-clip-text text-transparent uppercase">
-                  {item.metric}
-                </h3>
-                <p className="text-gray-500 text-sm font-light tracking-wide">{item.label}</p>
+          <div className="flex flex-col items-center text-center mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-px w-8 bg-cyan-500"></div>
+              <span className="text-xs uppercase tracking-[0.3em] text-cyan-400 font-semibold">Alcance</span>
+              <div className="h-px w-8 bg-cyan-500"></div>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white uppercase">Implementación a tu medida</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/5">
+            {/* Verticales */}
+            <div className="group p-10 md:p-12 border-b md:border-b-0 md:border-r border-white/5 hover:bg-white/[0.02] transition-colors relative">
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="flex items-center justify-between mb-8">
+                <span className="w-12 h-12 flex items-center justify-center border border-cyan-500/40 text-cyan-500 bg-cyan-500/5">
+                  <Factory className="w-5 h-5" />
+                </span>
+                <span className="font-mono text-[10px] text-gray-600 tracking-widest">01</span>
               </div>
-            ))}
+              <h3 className="text-sm font-bold uppercase tracking-widest text-white mb-2">Nuestras Verticales</h3>
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-6">Industrias que atendemos</p>
+              <ul className="space-y-4">
+                {[
+                  { icon: <Zap className="w-4 h-4" />, name: "Generación de energía" },
+                  { icon: <Mountain className="w-4 h-4" />, name: "Minería" },
+                  { icon: <Fuel className="w-4 h-4" />, name: "Hidrocarburos" },
+                ].map((v) => (
+                  <li key={v.name} className="flex items-center gap-3 p-3 border border-white/5 bg-white/[0.01] group-hover:border-white/10 transition-colors">
+                    <span className="text-cyan-500">{v.icon}</span>
+                    <span className="text-sm text-gray-200 font-medium tracking-wide">{v.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Infraestructura híbrida */}
+            <div className="group p-10 md:p-12 border-b md:border-b-0 md:border-r border-white/5 hover:bg-white/[0.02] transition-colors relative">
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="flex items-center justify-between mb-8">
+                <span className="w-12 h-12 flex items-center justify-center border border-purple-500/40 text-purple-500 bg-purple-500/5">
+                  <Cloud className="w-5 h-5" />
+                </span>
+                <span className="font-mono text-[10px] text-gray-600 tracking-widest">02</span>
+              </div>
+              <h3 className="text-sm font-bold uppercase tracking-widest text-white mb-2">Infraestructura Híbrida</h3>
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-6">Cloud y On-Premise</p>
+              <ul className="space-y-5">
+                <li className="flex items-start gap-3">
+                  <Cloud className="w-4 h-4 mt-0.5 text-purple-400 shrink-0" />
+                  <p className="text-sm text-gray-400 font-light">Cloud para escalabilidad y despliegue ágil</p>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Server className="w-4 h-4 mt-0.5 text-purple-400 shrink-0" />
+                  <p className="text-sm text-gray-400 font-light">On-premise para datos sensibles dentro de tu planta</p>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Layers className="w-4 h-4 mt-0.5 text-purple-400 shrink-0" />
+                  <p className="text-sm text-gray-400 font-light">Combinación según los requerimientos de tu cliente</p>
+                </li>
+              </ul>
+            </div>
+
+            {/* Casos de uso */}
+            <div className="group p-10 md:p-12 hover:bg-white/[0.02] transition-colors relative">
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="flex items-center justify-between mb-8">
+                <span className="w-12 h-12 flex items-center justify-center border border-cyan-500/40 text-cyan-500 bg-cyan-500/5">
+                  <Network className="w-5 h-5" />
+                </span>
+                <span className="font-mono text-[10px] text-gray-600 tracking-widest">03</span>
+              </div>
+              <h3 className="text-sm font-bold uppercase tracking-widest text-white mb-8">Casos de Uso</h3>
+              <div className="space-y-7">
+                {[
+                  {
+                    tech: "Térmicas",
+                    cases: [
+                      { title: "Predicción de fallas", detail: "en turbina a gas" },
+                      { title: "Optimización de lavado", detail: "en turbina a gas" },
+                    ],
+                  },
+                  {
+                    tech: "Hidroeléctricas",
+                    cases: [
+                      { title: "Predicción de fallas", detail: "en generadores y turbinas" },
+                      { title: "Detección de cavitación", detail: "en turbinas Francis y Pelton" },
+                    ],
+                  },
+                  {
+                    tech: "Eólica y Solar",
+                    cases: [
+                      { title: "Predicción de fallas", detail: "en cajas multiplicadoras de aerogeneradores" },
+                      { title: "Detección de bajo rendimiento", detail: "en inversores y paneles solares" },
+                    ],
+                  },
+                ].map((group) => (
+                  <div key={group.tech}>
+                    <p className="text-[10px] text-cyan-400/80 uppercase tracking-[0.25em] font-semibold mb-3">{group.tech}</p>
+                    <ul className="space-y-4">
+                      {group.cases.map((c) => (
+                        <li key={c.title} className="border-l border-cyan-500/40 pl-4">
+                          <p className="text-sm text-gray-200 font-medium">{c.title}</p>
+                          <p className="text-sm text-gray-400 font-light mt-0.5">{c.detail}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </motion.div>
       </section>

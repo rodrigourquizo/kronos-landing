@@ -4,9 +4,9 @@ import NotFound from "@/pages/NotFound";
 import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import ConsultoriaITOT from "./pages/ConsultoriaITOT";
 import Home from "./pages/Home";
 import MantenimientoPredictivo from "./pages/MantenimientoPredictivo";
+import SolucionesAgenticasITOT from "./pages/SolucionesAgenticasITOT";
 import Team from "./pages/Team";
 
 
@@ -16,7 +16,7 @@ function Router() {
       <Switch>
         <Route path={"/"} component={Home} />
         <Route path={"/mantenimiento-predictivo"} component={MantenimientoPredictivo} />
-        <Route path={"/consultoria-it-ot"} component={ConsultoriaITOT} />
+        <Route path={"/soluciones-agenticas-it-ot"} component={SolucionesAgenticasITOT} />
         <Route path={"/equipo"} component={Team} />
         <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}

@@ -12,7 +12,7 @@ import DemoModal from "@/components/DemoModal";
  * Style: Palantir-inspired, sharp geometry, high contrast, minimalist.
  * Only the hero (intro + the two solution entry points) lives here — each
  * solution is detailed on its own route (see MantenimientoPredictivo /
- * ConsultoriaITOT), reached via the "Soluciones" nav or the cards below.
+ * SolucionesAgenticasITOT), reached via the "Soluciones" nav or the cards below.
  */
 
 export default function Home() {
@@ -79,9 +79,9 @@ export default function Home() {
                     },
                     {
                       icon: <Network className="w-5 h-5" />,
-                      title: "Consultoría IT/OT",
-                      desc: "Automatización de procesos y gobernanza de datos",
-                      href: "/consultoria-it-ot",
+                      title: "Soluciones Agénticas IT/OT",
+                      desc: "Agentes de IA y workflows para automatizar la operación",
+                      href: "/soluciones-agenticas-it-ot",
                       accent: "purple",
                     },
                   ].map((sol) => (

@@ -34,7 +34,7 @@ export default function SiteFooter() {
             <div className="space-y-4">
               <Link href="/" className="block text-gray-500 hover:text-white transition-colors text-sm font-light">Inicio</Link>
               <Link href="/mantenimiento-predictivo" className="block text-gray-500 hover:text-white transition-colors text-sm font-light">Mantenimiento Predictivo</Link>
-              <Link href="/consultoria-it-ot" className="block text-gray-500 hover:text-white transition-colors text-sm font-light">Consultoría IT/OT</Link>
+              <Link href="/soluciones-agenticas-it-ot" className="block text-gray-500 hover:text-white transition-colors text-sm font-light">Soluciones Agénticas IT/OT</Link>
               <Link href="/equipo" className="block text-gray-500 hover:text-white transition-colors text-sm font-light">Equipo</Link>
               <a href="#contact" className="block text-gray-500 hover:text-white transition-colors text-sm font-light">Contacto</a>
             </div>

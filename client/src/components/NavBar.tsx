@@ -9,7 +9,7 @@ import { Link } from "wouter";
  */
 
 type NavBarProps = {
-  active?: "inicio" | "equipo" | "mantenimiento-predictivo" | "consultoria-it-ot";
+  active?: "inicio" | "equipo" | "mantenimiento-predictivo" | "soluciones-agenticas-it-ot";
   onDemoClick?: () => void;
 };
 
@@ -34,7 +34,7 @@ export default function NavBar({ active, onDemoClick }: NavBarProps) {
           <Link href="/" className={linkClass(active === "inicio")}>Inicio</Link>
 
           <div className="relative group">
-            <button className={`flex items-center gap-1.5 ${linkClass(active === "mantenimiento-predictivo" || active === "consultoria-it-ot")}`}>
+            <button className={`flex items-center gap-1.5 ${linkClass(active === "mantenimiento-predictivo" || active === "soluciones-agenticas-it-ot")}`}>
               Soluciones
               <ChevronDown className="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" />
             </button>
@@ -50,13 +50,13 @@ export default function NavBar({ active, onDemoClick }: NavBarProps) {
                   </span>
                 </Link>
                 <div className="h-px bg-white/5 my-1" />
-                <Link href="/consultoria-it-ot" className="flex items-start gap-4 p-4 hover:bg-white/[0.04] transition-colors group/item">
+                <Link href="/soluciones-agenticas-it-ot" className="flex items-start gap-4 p-4 hover:bg-white/[0.04] transition-colors group/item">
                   <span className="shrink-0 w-9 h-9 flex items-center justify-center border border-purple-500/30 text-purple-500 group-hover/item:border-purple-500 group-hover/item:bg-purple-500/10 transition-colors">
                     <Network className="w-4 h-4" />
                   </span>
                   <span>
-                    <span className="block text-sm font-semibold text-white tracking-wide">Consultoría IT/OT</span>
-                    <span className="block text-xs text-gray-500 font-light mt-1 leading-relaxed">Automatización de procesos y gobernanza de datos</span>
+                    <span className="block text-sm font-semibold text-white tracking-wide">Soluciones Agénticas IT/OT</span>
+                    <span className="block text-xs text-gray-500 font-light mt-1 leading-relaxed">Agentes de IA y workflows para automatizar la operación</span>
                   </span>
                 </Link>
               </div>
